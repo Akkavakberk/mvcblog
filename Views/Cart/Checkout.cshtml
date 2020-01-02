@@ -1,0 +1,73 @@
+﻿@model Web_UI.Models.ShippinhDetails
+@{
+    ViewBag.Title = "Checkout";
+}
+<
+
+<div class="container py-5 ">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Sipariş Bilgileriniz</h3>
+            <div class="alert alert-info col-sm-8" role="alert">
+                Lütfen adres bilgilerinizi doldurun
+            </div>
+            <hr />
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Kullanıcı Adı</label>
+                    <div class="col-sm-6">
+                         <span class="badge-danger">@User.Identity.Name</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Adres Tanımı</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(item => item.AdresBasligi, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Adres</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(item => item.Adres, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Şehir</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(item => item.Sehir, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Semt</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(item => item.Semt, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Mahalle</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(item => item.Mahalle, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Posta Kodu</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(item => item.PostaKodu, new { @class = "form-control" })
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group row float-right">
+
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

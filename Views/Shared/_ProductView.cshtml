@@ -1,0 +1,33 @@
+﻿@using Web_UI.Models
+@model  IEnumerable<ProductModel>
+<div class="row">
+
+    @foreach (var urun in Model)
+    {
+        <div class="col-md-4">
+            <div class="container">
+                <div class="card mb-3 ">
+                    <img style="height:300px;" src="/Upload/@urun.image" class="card-img-top img-fluid" alt="@urun.Name">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="/Home/Details/@urun.Id">@urun.Name</a>
+                        </h5>
+                        <p class="card-text pt-3 description">
+                            @urun.Description
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted product-price">
+                            @urun.Price
+                            <i class="fas fa-lira-sign"></i>
+                        </small>
+                        <a href="/Home/Details/@urun.Id" class="btn btn-info btn-sm float-right">
+                            Ürünü incele
+                            <i class="fas fa-angle-double-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

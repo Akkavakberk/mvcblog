@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Web_UI.Entity.Category>
+
+@{
+    var selectedCategoryId = Url.RequestContext.RouteData.Values["id"];
+}
+
+
+<div style="background-color:whitesmoke; font-size:13px;" class="list-group">
+    <div class="list-group-item">
+        <i class="fas fa-check-circle"></i>
+        <a href="/Home/List">Tüm Kategoriler</a>
+    </div>
+    @foreach (var item in Model)
+    {
+        if (selectedCategoryId != null)
+        {
+            if (item.Id == int.Parse(selectedCategoryId.ToString()))
+            {
+                //seçilen kategori ile route idsi birbirine eşit
+                <a class="list-group-item active"
+                   href="/Home/List/@item.Id">
+                    <i class="fas fa-bolt"></i>
+                    @item.Name
+                </a>
+            }
+            else
+            {
+                <a class="list-group-item "
+                   href="/Home/List/@item.Id">
+                    <i class="fas fa-bolt"></i>
+                    @item.Name
+                </a>
+            }
+        }
+        else
+        {
+
+            <a class="list-group-item"
+               href="/Home/List/@item.Id">
+                <i class="fas fa-bolt"></i>
+                @item.Name
+            </a>
+        }
+
+
+    }
+
+
+</div>
